@@ -1,0 +1,46 @@
+unit RegisterForm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TFormRegister = class(TForm)
+    lblFIO: TLabel;
+    edtFIO: TEdit;
+    lblCourse: TLabel;
+    cbCourse: TComboBox;
+    lblGroup: TLabel;
+    edtGroup: TEdit;
+    btnOK: TButton;
+    procedure btnOKClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    var
+  StudentFIO, StudentGroup: string;
+  StudentCourse: Integer;
+  end;
+
+var
+  FormRegister: TFormRegister;
+
+implementation
+
+uses Unit2, TestForm;
+
+{$R *.dfm}
+
+procedure TFormRegister.btnOKClick(Sender: TObject);
+begin
+  StudentFIO := edtFIO.Text;
+  StudentGroup := edtGroup.Text;
+  StudentCourse := cbCourse.ItemIndex + 1;
+
+  FormRegister.Hide;
+  Form4.Show;
+end;
+
+end.

@@ -1,0 +1,321 @@
+unit TestForm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, CheckLst, ExtCtrls;
+
+type
+  TQuestionType = (qtSingle, qtMultiple, qtInput, qtCombo);
+
+  TQuestion = record
+    QType: TQuestionType;
+    Text: string;
+    Options: array[0..3] of string;
+    Correct: array[0..3] of Boolean;
+    CorrectText: string;
+  end;
+
+type
+  TForm4 = class(TForm)
+    lblQuestion: TLabel;
+    rgAnswers: TRadioGroup;
+    clbAnswers: TCheckListBox;
+    edtAnswer: TEdit;
+    cbAnswers: TComboBox;
+    btnNext: TButton;
+    btnFinish: TButton;
+    procedure FormShow(Sender: TObject);
+    procedure btnNextClick(Sender: TObject);
+    procedure btnFinishClick(Sender: TObject);
+  private
+    procedure ShowCurrentQuestion;
+    procedure HideAllInputs;
+    function CheckAnswer: Boolean;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+  Questions: array[0..19] of TQuestion;
+  CurrentIndex, Score: Integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm4.FormShow(Sender: TObject);
+begin
+  CurrentIndex := 0;
+  Score := 0;
+
+  // Вопрос 1
+  Questions[0].QType := qtSingle;
+  Questions[0].Text := 'Сколько цифр содержит двоичная система счисления?';
+  Questions[0].Options[0] := '1';
+  Questions[0].Options[1] := '2';
+  Questions[0].Options[2] := '8';
+  Questions[0].Options[3] := '10';
+  Questions[0].Correct[1] := True;
+
+  // Вопрос 2
+  Questions[1].QType := qtSingle;
+  Questions[1].Text := 'Какая из систем счисления позиционная?';
+  Questions[1].Options[0] := 'Римская';
+  Questions[1].Options[1] := 'Двоичная';
+  Questions[1].Options[2] := 'Шестнадцатеричная';
+  Questions[1].Options[3] := 'Все вышеперечисленные';
+  Questions[1].Correct[1] := True;
+
+  // Вопрос 3
+  Questions[2].QType := qtSingle;
+  Questions[2].Text := 'Сколько цифр в шестнадцатеричной системе счисления?';
+  Questions[2].Options[0] := '8';
+  Questions[2].Options[1] := '10';
+  Questions[2].Options[2] := '16';
+  Questions[2].Options[3] := '2';
+  Questions[2].Correct[2] := True;
+
+  // Вопрос 4
+  Questions[3].QType := qtSingle;
+  Questions[3].Text := 'Чему равна 1 в двоичной системе?';
+  Questions[3].Options[0] := '1';
+  Questions[3].Options[1] := '10';
+  Questions[3].Options[2] := '01';
+  Questions[3].Options[3] := '0';
+  Questions[3].Correct[0] := True;
+
+  // Вопрос 5
+  Questions[4].QType := qtSingle;
+  Questions[4].Text := 'Минимальное количество символов в алфавите системы счисления?';
+  Questions[4].Options[0] := '1';
+  Questions[4].Options[1] := '2';
+  Questions[4].Options[2] := '3';
+  Questions[4].Options[3] := '0';
+  Questions[4].Correct[1] := True;
+
+  // Вопрос 6
+  Questions[5].QType := qtInput;
+  Questions[5].Text := 'Введите десятичное значение числа 1010?';
+  Questions[5].CorrectText := '10';
+
+  // Вопрос 7
+  Questions[6].QType := qtInput;
+  Questions[6].Text := 'Введите двоичное представление числа 15';
+  Questions[6].CorrectText := '1111';
+
+  // Вопрос 8
+  Questions[7].QType := qtCombo;
+  Questions[7].Text := 'Какая программа используется для создания таблиц?';
+  Questions[7].Options[0] := 'Word';
+  Questions[7].Options[1] := 'Excel';
+  Questions[7].Options[2] := 'Paint';
+  Questions[7].Options[3] := 'Access';
+  Questions[7].Correct[1] := True;
+
+  // Вопрос 9
+  Questions[8].QType := qtCombo;
+  Questions[8].Text := 'Выберите язык программирования';
+  Questions[8].Options[0] := 'Pascal';
+  Questions[8].Options[1] := 'HTML';
+  Questions[8].Options[2] := 'CSS';
+  Questions[8].Options[3] := 'JPEG';
+  Questions[8].Correct[0] := True;
+
+  // Вопрос 10
+  Questions[9].QType := qtMultiple;
+  Questions[9].Text := 'Выберите устройства ввода';
+  Questions[9].Options[0] := 'Клавиатура';
+  Questions[9].Options[1] := 'Монитор';
+  Questions[9].Options[2] := 'Мышь';
+  Questions[9].Options[3] := 'Принтер';
+  Questions[9].Correct[0] := True;
+  Questions[9].Correct[2] := True;
+
+  // Вопрос 11
+  Questions[10].QType := qtMultiple;
+  Questions[10].Text := 'Какие из перечисленных являются носителями информации?';
+  Questions[10].Options[0] := 'CD';
+  Questions[10].Options[1] := 'RAM';
+  Questions[10].Options[2] := 'Книга';
+  Questions[10].Options[3] := 'Флешка';
+  Questions[10].Correct[0] := True;
+  Questions[10].Correct[2] := True;
+  Questions[10].Correct[3] := True;
+
+  // Вопрос 12
+  Questions[11].QType := qtInput;
+  Questions[11].Text := 'Сколько байт в килобайте?';
+  Questions[11].CorrectText := '1024';
+
+  // Вопрос 13
+  Questions[12].QType := qtCombo;
+  Questions[12].Text := 'Выберите расширение текстового файла';
+  Questions[12].Options[0] := '.exe';
+  Questions[12].Options[1] := '.docx';
+  Questions[12].Options[2] := '.txt';
+  Questions[12].Options[3] := '.bat';
+  Questions[12].Correct[2] := True;
+
+  // Вопрос 14
+  Questions[13].QType := qtSingle;
+  Questions[13].Text := 'Что такое алгоритм?';
+  Questions[13].Options[0] := 'Математик';
+  Questions[13].Options[1] := 'Последовательность действий';
+  Questions[13].Options[2] := 'Файл';
+  Questions[13].Options[3] := 'Клавиша';
+  Questions[13].Correct[1] := True;
+
+  // Вопрос 15
+  Questions[14].QType := qtInput;
+  Questions[14].Text := 'Введите имя разработчика языка Pascal';
+  Questions[14].CorrectText := 'Никлаус Вирт';
+
+  // Вопрос 16
+  Questions[15].QType := qtMultiple;
+  Questions[15].Text := 'Выберите языки программирования';
+  Questions[15].Options[0] := 'Python';
+  Questions[15].Options[1] := 'Word';
+  Questions[15].Options[2] := 'C++';
+  Questions[15].Options[3] := 'Excel';
+  Questions[15].Correct[0] := True;
+  Questions[15].Correct[2] := True;
+
+  // Вопрос 17
+  Questions[16].QType := qtCombo;
+  Questions[16].Text := 'Что из перечисленного — операционная система?';
+  Questions[16].Options[0] := 'Windows';
+  Questions[16].Options[1] := 'Intel';
+  Questions[16].Options[2] := 'Chrome';
+  Questions[16].Options[3] := 'Corel';
+  Questions[16].Correct[0] := True;
+
+  // Вопрос 18
+  Questions[17].QType := qtSingle;
+  Questions[17].Text := 'Где хранятся активные программы?';
+  Questions[17].Options[0] := 'ROM';
+  Questions[17].Options[1] := 'RAM';
+  Questions[17].Options[2] := 'HDD';
+  Questions[17].Options[3] := 'SSD';
+  Questions[17].Correct[1] := True;
+
+  // Вопрос 19
+  Questions[18].QType := qtInput;
+  Questions[18].Text := 'Введите расширение исполняемого файла в Windows';
+  Questions[18].CorrectText := '.exe';
+
+  // Вопрос 20
+  Questions[19].QType := qtSingle;
+  Questions[19].Text := 'Какая система счисления используется в компьютерах?';
+  Questions[19].Options[0] := 'Римская';
+  Questions[19].Options[1] := 'Десятичная';
+  Questions[19].Options[2] := 'Двоичная';
+  Questions[19].Options[3] := 'Шестнадцатеричная';
+  Questions[19].Correct[2] := True;
+  btnNext.Enabled := True;
+  btnFinish.Enabled := False;
+
+  ShowCurrentQuestion;
+end;
+
+procedure TForm4.HideAllInputs;
+begin
+  rgAnswers.Visible := False;
+  clbAnswers.Visible := False;
+  edtAnswer.Visible := False;
+  cbAnswers.Visible := False;
+end;
+
+procedure TForm4.ShowCurrentQuestion;
+var
+  i: Integer;
+begin
+  HideAllInputs;
+  lblQuestion.Caption := Questions[CurrentIndex].Text;
+
+  case Questions[CurrentIndex].QType of
+    qtSingle:
+      begin
+        rgAnswers.Items.Clear;
+        for i := 0 to 3 do
+          rgAnswers.Items.Add(Questions[CurrentIndex].Options[i]);
+        rgAnswers.ItemIndex := -1;
+        rgAnswers.Visible := True;
+      end;
+    qtMultiple:
+      begin
+        clbAnswers.Items.Clear;
+        for i := 0 to 3 do
+          clbAnswers.Items.Add(Questions[CurrentIndex].Options[i]);
+        for i := 0 to 3 do
+          clbAnswers.Checked[i] := False;
+        clbAnswers.Visible := True;
+      end;
+    qtInput:
+      begin
+        edtAnswer.Text := '';
+        edtAnswer.Visible := True;
+      end;
+    qtCombo:
+      begin
+        cbAnswers.Items.Clear;
+        for i := 0 to 3 do
+          cbAnswers.Items.Add(Questions[CurrentIndex].Options[i]);
+        cbAnswers.ItemIndex := -1;
+        cbAnswers.Visible := True;
+      end;
+  end;
+end;
+
+function TForm4.CheckAnswer: Boolean;
+var
+  i: Integer;
+begin
+  Result := False;
+
+  case Questions[CurrentIndex].QType of
+    qtSingle:
+      Result := Questions[CurrentIndex].Correct[rgAnswers.ItemIndex];
+
+    qtMultiple:
+      begin
+        Result := True;
+        for i := 0 to 3 do
+          if clbAnswers.Checked[i] <> Questions[CurrentIndex].Correct[i] then
+            Result := False;
+      end;
+
+    qtInput:
+      Result := LowerCase(Trim(edtAnswer.Text)) = LowerCase(Questions[CurrentIndex].CorrectText);
+
+    qtCombo:
+      Result := Questions[CurrentIndex].Correct[cbAnswers.ItemIndex];
+  end;
+end;
+
+procedure TForm4.btnNextClick(Sender: TObject);
+begin
+  if CheckAnswer then
+    Inc(Score);
+
+  Inc(CurrentIndex);
+if CurrentIndex < Length(Questions) then
+  ShowCurrentQuestion
+else
+begin
+  ShowMessage('Вопросы закончились. Нажмите "Завершить".');
+  btnNext.Enabled := False;
+  btnFinish.Enabled := True;
+end;
+end;
+
+procedure TForm4.btnFinishClick(Sender: TObject);
+begin
+  ShowMessage('Результат: ' + IntToStr(Score) + ' из ' + IntToStr(Length(Questions)));
+  Form4.Hide;
+end;
+
+end.
+

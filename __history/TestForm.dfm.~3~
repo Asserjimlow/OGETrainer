@@ -1,0 +1,79 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = #1058#1077#1089#1090#1080#1088#1086#1074#1072#1085#1080#1077
+  ClientHeight = 411
+  ClientWidth = 852
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblQuestion: TLabel
+    Left = 64
+    Top = 24
+    Width = 53
+    Height = 13
+    Caption = 'lblQuestion'
+  end
+  object rgAnswers: TRadioGroup
+    Left = 184
+    Top = 104
+    Width = 185
+    Height = 105
+    Caption = 'rgAnswers'
+    TabOrder = 0
+    Visible = False
+  end
+  object clbAnswers: TCheckListBox
+    Left = 184
+    Top = 215
+    Width = 121
+    Height = 97
+    ItemHeight = 13
+    TabOrder = 1
+    Visible = False
+  end
+  object edtAnswer: TEdit
+    Left = 375
+    Top = 112
+    Width = 121
+    Height = 21
+    TabOrder = 2
+    Text = 'edtAnswer'
+    Visible = False
+  end
+  object cbAnswers: TComboBox
+    Left = 375
+    Top = 139
+    Width = 145
+    Height = 21
+    ItemHeight = 13
+    TabOrder = 3
+    Text = 'cbAnswers'
+    Visible = False
+  end
+  object btnNext: TButton
+    Left = 440
+    Top = 328
+    Width = 75
+    Height = 25
+    Caption = 'btnNext'
+    TabOrder = 4
+    OnClick = btnNextClick
+  end
+  object btnFinish: TButton
+    Left = 568
+    Top = 320
+    Width = 75
+    Height = 25
+    Caption = 'btnFinish'
+    TabOrder = 5
+    OnClick = btnFinishClick
+  end
+end

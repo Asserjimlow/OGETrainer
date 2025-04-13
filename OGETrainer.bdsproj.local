@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025.04.13 13:42:20.981.bdsproj,C:\Users\New\Documents\Borland Studio Projects\Project1.bdsproj=C:\Users\New\Documents\Borland Studio Projects\OGETrainer.bdsproj</Transaction>
+    <Transaction>2025.04.13 13:57:44.038.pas,C:\Users\New\Documents\Borland Studio Projects\Unit3.pas=C:\Users\New\Documents\Borland Studio Projects\TheoryForm.pas</Transaction>
+    <Transaction>2025.04.13 13:57:44.038.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit3.dfm=C:\Users\New\Documents\Borland Studio Projects\TheoryForm.dfm</Transaction>
+    <Transaction>2025.04.13 17:30:13.280.pas,C:\Users\New\Documents\Borland Studio Projects\Unit4.pas=C:\Users\New\Documents\Borland Studio Projects\RegisterForm.pas</Transaction>
+    <Transaction>2025.04.13 17:30:13.280.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit4.dfm=C:\Users\New\Documents\Borland Studio Projects\RegisterForm.dfm</Transaction>
+    <Transaction>2025.04.13 17:41:32.197.pas,C:\Users\New\Documents\Borland Studio Projects\Unit4.pas=C:\Users\New\Documents\Borland Studio Projects\TestForm.pas</Transaction>
+    <Transaction>2025.04.13 17:41:32.197.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit4.dfm=C:\Users\New\Documents\Borland Studio Projects\TestForm.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
