@@ -15,6 +15,9 @@ type
     btnAuthor: TButton;
     btnHelp: TButton;
     btnExit: TButton;
+    procedure btnHelpClick(Sender: TObject);
+    procedure btnAuthorClick(Sender: TObject);
+    procedure btnJournalClick(Sender: TObject);
     procedure btnTestClick(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure btnTheoryClick(Sender: TObject);
@@ -30,13 +33,29 @@ var
 
 implementation
 
-uses RegisterForm;
+uses RegisterForm, JournalForm, AboutForm, HelpForm;
 
 {$R *.dfm}
+
+procedure TForm2.btnAuthorClick(Sender: TObject);
+begin
+  FormAbout.Show;
+end;
 
 procedure TForm2.btnExitClick(Sender: TObject);
 begin
 Application.Terminate;
+end;
+
+procedure TForm2.btnHelpClick(Sender: TObject);
+begin
+  FormHelp.Show;
+end;
+
+procedure TForm2.btnJournalClick(Sender: TObject);
+begin
+  FormJournal.Show;
+  Form2.Hide;
 end;
 
 procedure TForm2.btnTestClick(Sender: TObject);

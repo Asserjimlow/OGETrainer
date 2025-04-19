@@ -15,6 +15,8 @@ type
     Memo10: TMemo;
     Memo11: TMemo;
     Memo12: TMemo;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -27,5 +29,13 @@ var
 
 implementation
 
+uses Unit2;
+
 {$R *.dfm}
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+Form3.Hide;
+Form2.Show;
+end;
+
 end.

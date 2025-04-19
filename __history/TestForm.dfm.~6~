@@ -1,0 +1,405 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'TestForm'
+  ClientHeight = 975
+  ClientWidth = 1428
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 1428
+    Height = 975
+    ActivePage = TabSheet20
+    Align = alClient
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 1'
+      object lblQ1: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 1'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 2'
+      ImageIndex = 1
+      object lblQ2: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 2'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 3'
+      ImageIndex = 2
+      object lblQ3: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 3'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 4'
+      ImageIndex = 3
+      object lblQ4: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 4'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet5: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 5'
+      ImageIndex = 4
+      object lblQ5: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 5'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet6: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 6'
+      ImageIndex = 5
+      object lblQ6: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 6'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet7: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 7'
+      ImageIndex = 6
+      object lblQ7: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 7'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet8: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 8'
+      ImageIndex = 7
+      object lblQ8: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 8'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet9: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 9'
+      ImageIndex = 8
+      object lblQ9: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 9'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 140
+      end
+    end
+    object TabSheet10: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 10'
+      ImageIndex = 9
+      object lblQ10: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 10'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet11: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 11'
+      ImageIndex = 10
+      object lblQ11: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 11'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 149
+      end
+    end
+    object TabSheet12: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 12'
+      ImageIndex = 11
+      object lblQ12: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 12'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet13: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 13'
+      ImageIndex = 12
+      object lblQ13: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 13'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet14: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 14'
+      ImageIndex = 13
+      object lblQ14: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 14'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet15: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 15'
+      ImageIndex = 14
+      object lblQ15: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 15'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet16: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 16'
+      ImageIndex = 15
+      object lblQ16: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 16'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet17: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 17'
+      ImageIndex = 16
+      object lblQ17: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 17'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet18: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 18'
+      ImageIndex = 17
+      object lblQ18: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 18'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet19: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 19'
+      ImageIndex = 18
+      object lblQ19: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 19'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+    object TabSheet20: TTabSheet
+      Caption = #1042#1086#1087#1088#1086#1089' 20'
+      ImageIndex = 19
+      object lblQ20: TLabel
+        Left = 0
+        Top = 0
+        Width = 1420
+        Height = 22
+        Align = alTop
+        Caption = #1058#1077#1082#1089#1090' '#1074#1086#1087#1088#1086#1089#1072' 20'
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'Times New Roman'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitWidth = 150
+      end
+    end
+  end
+end

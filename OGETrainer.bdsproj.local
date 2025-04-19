@@ -8,5 +8,19 @@
     <Transaction>2025.04.13 17:30:13.280.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit4.dfm=C:\Users\New\Documents\Borland Studio Projects\RegisterForm.dfm</Transaction>
     <Transaction>2025.04.13 17:41:32.197.pas,C:\Users\New\Documents\Borland Studio Projects\Unit4.pas=C:\Users\New\Documents\Borland Studio Projects\TestForm.pas</Transaction>
     <Transaction>2025.04.13 17:41:32.197.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit4.dfm=C:\Users\New\Documents\Borland Studio Projects\TestForm.dfm</Transaction>
+    <Transaction>2025.04.15 20:46:50.792.pas,C:\Users\New\Documents\Borland Studio Projects\TestForm.pas=</Transaction>
+    <Transaction>2025.04.15 20:46:50.792.dfm,C:\Users\New\Documents\Borland Studio Projects\TestForm.dfm=</Transaction>
+    <Transaction>2025.04.15 20:47:39.970.pas,C:\Users\New\Documents\Borland Studio Projects\Unit4.pas=C:\Users\New\Documents\Borland Studio Projects\TestForm.pas</Transaction>
+    <Transaction>2025.04.15 20:47:39.970.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit4.dfm=C:\Users\New\Documents\Borland Studio Projects\TestForm.dfm</Transaction>
+    <Transaction>2025.04.15 21:17:36.818.pas,C:\Users\New\Documents\Borland Studio Projects\TestForm.pas=</Transaction>
+    <Transaction>2025.04.15 21:17:36.819.dfm,C:\Users\New\Documents\Borland Studio Projects\TestForm.dfm=</Transaction>
+    <Transaction>2025.04.15 23:21:39.814.pas,C:\Users\New\Documents\Borland Studio Projects\Unit5.pas=C:\Users\New\Documents\Borland Studio Projects\JournalForm.pas</Transaction>
+    <Transaction>2025.04.15 23:21:39.814.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit5.dfm=C:\Users\New\Documents\Borland Studio Projects\JournalForm.dfm</Transaction>
+    <Transaction>2025.04.19 15:45:47.635.pas,C:\Users\New\Documents\Borland Studio Projects\Unit5.pas=C:\Users\New\Documents\Borland Studio Projects\AboutForm.pas</Transaction>
+    <Transaction>2025.04.19 15:45:47.635.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit5.dfm=C:\Users\New\Documents\Borland Studio Projects\AboutForm.dfm</Transaction>
+    <Transaction>2025.04.19 15:51:03.498.pas,C:\Users\New\Documents\Borland Studio Projects\AboutForm.pas=</Transaction>
+    <Transaction>2025.04.19 15:51:03.498.dfm,C:\Users\New\Documents\Borland Studio Projects\AboutForm.dfm=</Transaction>
+    <Transaction>2025.04.19 16:06:35.729.pas,C:\Users\New\Documents\Borland Studio Projects\Unit5.pas=C:\Users\New\Documents\Borland Studio Projects\HelpForm.pas</Transaction>
+    <Transaction>2025.04.19 16:06:35.729.dfm,C:\Users\New\Documents\Borland Studio Projects\Unit5.dfm=C:\Users\New\Documents\Borland Studio Projects\HelpForm.dfm</Transaction>
   </Transactions>
 </BorlandProject>

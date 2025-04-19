@@ -1,7 +1,7 @@
 object Form2: TForm2
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = #1043#1083#1072#1074#1085#1086#1077' '#1084#1077#1085#1102
   ClientHeight = 1292
   ClientWidth = 1858
   Color = clBtnFace
@@ -46,6 +46,7 @@ object Form2: TForm2
       Height = 65
       Caption = #1046#1091#1088#1085#1072#1083
       TabOrder = 2
+      OnClick = btnJournalClick
     end
     object btnAuthor: TButton
       Left = 8
@@ -54,6 +55,7 @@ object Form2: TForm2
       Height = 65
       Caption = #1054#1073' '#1072#1074#1090#1086#1088#1077
       TabOrder = 3
+      OnClick = btnAuthorClick
     end
     object btnHelp: TButton
       Left = 8
@@ -62,6 +64,7 @@ object Form2: TForm2
       Height = 65
       Caption = #1055#1086#1084#1086#1097#1100
       TabOrder = 4
+      OnClick = btnHelpClick
     end
     object btnExit: TButton
       Left = 8

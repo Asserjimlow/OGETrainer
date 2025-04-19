@@ -1,321 +1,223 @@
-п»їunit TestForm;
+unit TestForm;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, CheckLst, ExtCtrls;
-
-type
-  TQuestionType = (qtSingle, qtMultiple, qtInput, qtCombo);
-
-  TQuestion = record
-    QType: TQuestionType;
-    Text: string;
-    Options: array[0..3] of string;
-    Correct: array[0..3] of Boolean;
-    CorrectText: string;
-  end;
+  Dialogs, ComCtrls, StdCtrls, CheckLst, ExtCtrls, ComObj, RegisterForm, JournalForm, Unit2;
 
 type
   TForm4 = class(TForm)
-    lblQuestion: TLabel;
-    rgAnswers: TRadioGroup;
-    clbAnswers: TCheckListBox;
-    edtAnswer: TEdit;
-    cbAnswers: TComboBox;
-    btnNext: TButton;
-    btnFinish: TButton;
-    procedure FormShow(Sender: TObject);
-    procedure btnNextClick(Sender: TObject);
-    procedure btnFinishClick(Sender: TObject);
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    lblQ1: TLabel;
+    TabSheet2: TTabSheet;
+    lblQ2: TLabel;
+    TabSheet3: TTabSheet;
+    lblQ3: TLabel;
+    TabSheet4: TTabSheet;
+    lblQ4: TLabel;
+    TabSheet5: TTabSheet;
+    lblQ5: TLabel;
+    TabSheet6: TTabSheet;
+    lblQ6: TLabel;
+    TabSheet7: TTabSheet;
+    lblQ7: TLabel;
+    TabSheet8: TTabSheet;
+    lblQ8: TLabel;
+    TabSheet9: TTabSheet;
+    lblQ9: TLabel;
+    TabSheet10: TTabSheet;
+    lblQ10: TLabel;
+    TabSheet11: TTabSheet;
+    lblQ11: TLabel;
+    TabSheet12: TTabSheet;
+    lblQ12: TLabel;
+    TabSheet13: TTabSheet;
+    lblQ13: TLabel;
+    TabSheet14: TTabSheet;
+    lblQ14: TLabel;
+    TabSheet15: TTabSheet;
+    lblQ15: TLabel;
+    TabSheet16: TTabSheet;
+    lblQ16: TLabel;
+    TabSheet17: TTabSheet;
+    lblQ17: TLabel;
+    TabSheet18: TTabSheet;
+    lblQ18: TLabel;
+    TabSheet19: TTabSheet;
+    lblQ19: TLabel;
+    TabSheet20: TTabSheet;
+    lblQ20: TLabel;
+    RadioGroup1: TRadioGroup;
+    RadioGroup2: TRadioGroup;
+    Edit1: TEdit;
+    RadioGroup3: TRadioGroup;
+    ListBox1: TListBox;
+    Edit2: TEdit;
+    RadioGroup4: TRadioGroup;
+    CheckListBox1: TCheckListBox;
+    RadioGroup5: TRadioGroup;
+    Edit3: TEdit;
+    RadioGroup6: TRadioGroup;
+    CheckListBox2: TCheckListBox;
+    RadioGroup7: TRadioGroup;
+    Edit4: TEdit;
+    ListBox2: TListBox;
+    CheckListBox3: TCheckListBox;
+    RadioGroup8: TRadioGroup;
+    Edit5: TEdit;
+    RadioGroup9: TRadioGroup;
+    CheckListBox4: TCheckListBox;
+    Button1: TButton;
+    btnExit: TButton;
+    procedure btnExitClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
-    procedure ShowCurrentQuestion;
-    procedure HideAllInputs;
-    function CheckAnswer: Boolean;
+    { Private declarations }
   public
     { Public declarations }
   end;
 
 var
   Form4: TForm4;
-  Questions: array[0..19] of TQuestion;
-  CurrentIndex, Score: Integer;
+  FormJournal: TFormJournal;
+  RegisterForm: TFormRegister;
+  row: Integer;
+  fio, kurs, group: string;
+  ExcelApp, WorkBook, WorkSheet: Variant;
+  i, j: Integer;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm4.FormShow(Sender: TObject);
+procedure TForm4.btnExitClick(Sender: TObject);
 begin
-  CurrentIndex := 0;
-  Score := 0;
-
-  // Р’РѕРїСЂРѕСЃ 1
-  Questions[0].QType := qtSingle;
-  Questions[0].Text := 'РЎРєРѕР»СЊРєРѕ С†РёС„СЂ СЃРѕРґРµСЂР¶РёС‚ РґРІРѕРёС‡РЅР°СЏ СЃРёСЃС‚РµРјР° СЃС‡РёСЃР»РµРЅРёСЏ?';
-  Questions[0].Options[0] := '1';
-  Questions[0].Options[1] := '2';
-  Questions[0].Options[2] := '8';
-  Questions[0].Options[3] := '10';
-  Questions[0].Correct[1] := True;
-
-  // Р’РѕРїСЂРѕСЃ 2
-  Questions[1].QType := qtSingle;
-  Questions[1].Text := 'РљР°РєР°СЏ РёР· СЃРёСЃС‚РµРј СЃС‡РёСЃР»РµРЅРёСЏ РїРѕР·РёС†РёРѕРЅРЅР°СЏ?';
-  Questions[1].Options[0] := 'Р РёРјСЃРєР°СЏ';
-  Questions[1].Options[1] := 'Р”РІРѕРёС‡РЅР°СЏ';
-  Questions[1].Options[2] := 'РЁРµСЃС‚РЅР°РґС†Р°С‚РµСЂРёС‡РЅР°СЏ';
-  Questions[1].Options[3] := 'Р’СЃРµ РІС‹С€РµРїРµСЂРµС‡РёСЃР»РµРЅРЅС‹Рµ';
-  Questions[1].Correct[1] := True;
-
-  // Р’РѕРїСЂРѕСЃ 3
-  Questions[2].QType := qtSingle;
-  Questions[2].Text := 'РЎРєРѕР»СЊРєРѕ С†РёС„СЂ РІ С€РµСЃС‚РЅР°РґС†Р°С‚РµСЂРёС‡РЅРѕР№ СЃРёСЃС‚РµРјРµ СЃС‡РёСЃР»РµРЅРёСЏ?';
-  Questions[2].Options[0] := '8';
-  Questions[2].Options[1] := '10';
-  Questions[2].Options[2] := '16';
-  Questions[2].Options[3] := '2';
-  Questions[2].Correct[2] := True;
-
-  // Р’РѕРїСЂРѕСЃ 4
-  Questions[3].QType := qtSingle;
-  Questions[3].Text := 'Р§РµРјСѓ СЂР°РІРЅР° 1 РІ РґРІРѕРёС‡РЅРѕР№ СЃРёСЃС‚РµРјРµ?';
-  Questions[3].Options[0] := '1';
-  Questions[3].Options[1] := '10';
-  Questions[3].Options[2] := '01';
-  Questions[3].Options[3] := '0';
-  Questions[3].Correct[0] := True;
-
-  // Р’РѕРїСЂРѕСЃ 5
-  Questions[4].QType := qtSingle;
-  Questions[4].Text := 'РњРёРЅРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РІ Р°Р»С„Р°РІРёС‚Рµ СЃРёСЃС‚РµРјС‹ СЃС‡РёСЃР»РµРЅРёСЏ?';
-  Questions[4].Options[0] := '1';
-  Questions[4].Options[1] := '2';
-  Questions[4].Options[2] := '3';
-  Questions[4].Options[3] := '0';
-  Questions[4].Correct[1] := True;
-
-  // Р’РѕРїСЂРѕСЃ 6
-  Questions[5].QType := qtInput;
-  Questions[5].Text := 'Р’РІРµРґРёС‚Рµ РґРµСЃСЏС‚РёС‡РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ С‡РёСЃР»Р° 1010в‚‚';
-  Questions[5].CorrectText := '10';
-
-  // Р’РѕРїСЂРѕСЃ 7
-  Questions[6].QType := qtInput;
-  Questions[6].Text := 'Р’РІРµРґРёС‚Рµ РґРІРѕРёС‡РЅРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ С‡РёСЃР»Р° 15';
-  Questions[6].CorrectText := '1111';
-
-  // Р’РѕРїСЂРѕСЃ 8
-  Questions[7].QType := qtCombo;
-  Questions[7].Text := 'РљР°РєР°СЏ РїСЂРѕРіСЂР°РјРјР° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ С‚Р°Р±Р»РёС†?';
-  Questions[7].Options[0] := 'Word';
-  Questions[7].Options[1] := 'Excel';
-  Questions[7].Options[2] := 'Paint';
-  Questions[7].Options[3] := 'Access';
-  Questions[7].Correct[1] := True;
-
-  // Р’РѕРїСЂРѕСЃ 9
-  Questions[8].QType := qtCombo;
-  Questions[8].Text := 'Р’С‹Р±РµСЂРёС‚Рµ СЏР·С‹Рє РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ';
-  Questions[8].Options[0] := 'Pascal';
-  Questions[8].Options[1] := 'HTML';
-  Questions[8].Options[2] := 'CSS';
-  Questions[8].Options[3] := 'JPEG';
-  Questions[8].Correct[0] := True;
-
-  // Р’РѕРїСЂРѕСЃ 10
-  Questions[9].QType := qtMultiple;
-  Questions[9].Text := 'Р’С‹Р±РµСЂРёС‚Рµ СѓСЃС‚СЂРѕР№СЃС‚РІР° РІРІРѕРґР°';
-  Questions[9].Options[0] := 'РљР»Р°РІРёР°С‚СѓСЂР°';
-  Questions[9].Options[1] := 'РњРѕРЅРёС‚РѕСЂ';
-  Questions[9].Options[2] := 'РњС‹С€СЊ';
-  Questions[9].Options[3] := 'РџСЂРёРЅС‚РµСЂ';
-  Questions[9].Correct[0] := True;
-  Questions[9].Correct[2] := True;
-
-  // Р’РѕРїСЂРѕСЃ 11
-  Questions[10].QType := qtMultiple;
-  Questions[10].Text := 'РљР°РєРёРµ РёР· РїРµСЂРµС‡РёСЃР»РµРЅРЅС‹С… СЏРІР»СЏСЋС‚СЃСЏ РЅРѕСЃРёС‚РµР»СЏРјРё РёРЅС„РѕСЂРјР°С†РёРё?';
-  Questions[10].Options[0] := 'CD';
-  Questions[10].Options[1] := 'RAM';
-  Questions[10].Options[2] := 'РљРЅРёРіР°';
-  Questions[10].Options[3] := 'Р¤Р»РµС€РєР°';
-  Questions[10].Correct[0] := True;
-  Questions[10].Correct[2] := True;
-  Questions[10].Correct[3] := True;
-
-  // Р’РѕРїСЂРѕСЃ 12
-  Questions[11].QType := qtInput;
-  Questions[11].Text := 'РЎРєРѕР»СЊРєРѕ Р±Р°Р№С‚ РІ РєРёР»РѕР±Р°Р№С‚Рµ?';
-  Questions[11].CorrectText := '1024';
-
-  // Р’РѕРїСЂРѕСЃ 13
-  Questions[12].QType := qtCombo;
-  Questions[12].Text := 'Р’С‹Р±РµСЂРёС‚Рµ СЂР°СЃС€РёСЂРµРЅРёРµ С‚РµРєСЃС‚РѕРІРѕРіРѕ С„Р°Р№Р»Р°';
-  Questions[12].Options[0] := '.exe';
-  Questions[12].Options[1] := '.docx';
-  Questions[12].Options[2] := '.txt';
-  Questions[12].Options[3] := '.bat';
-  Questions[12].Correct[2] := True;
-
-  // Р’РѕРїСЂРѕСЃ 14
-  Questions[13].QType := qtSingle;
-  Questions[13].Text := 'Р§С‚Рѕ С‚Р°РєРѕРµ Р°Р»РіРѕСЂРёС‚Рј?';
-  Questions[13].Options[0] := 'РњР°С‚РµРјР°С‚РёРє';
-  Questions[13].Options[1] := 'РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РґРµР№СЃС‚РІРёР№';
-  Questions[13].Options[2] := 'Р¤Р°Р№Р»';
-  Questions[13].Options[3] := 'РљР»Р°РІРёС€Р°';
-  Questions[13].Correct[1] := True;
-
-  // Р’РѕРїСЂРѕСЃ 15
-  Questions[14].QType := qtInput;
-  Questions[14].Text := 'Р’РІРµРґРёС‚Рµ РёРјСЏ СЂР°Р·СЂР°Р±РѕС‚С‡РёРєР° СЏР·С‹РєР° Pascal';
-  Questions[14].CorrectText := 'РќРёРєР»Р°СѓСЃ Р’РёСЂС‚';
-
-  // Р’РѕРїСЂРѕСЃ 16
-  Questions[15].QType := qtMultiple;
-  Questions[15].Text := 'Р’С‹Р±РµСЂРёС‚Рµ СЏР·С‹РєРё РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ';
-  Questions[15].Options[0] := 'Python';
-  Questions[15].Options[1] := 'Word';
-  Questions[15].Options[2] := 'C++';
-  Questions[15].Options[3] := 'Excel';
-  Questions[15].Correct[0] := True;
-  Questions[15].Correct[2] := True;
-
-  // Р’РѕРїСЂРѕСЃ 17
-  Questions[16].QType := qtCombo;
-  Questions[16].Text := 'Р§С‚Рѕ РёР· РїРµСЂРµС‡РёСЃР»РµРЅРЅРѕРіРѕ вЂ” РѕРїРµСЂР°С†РёРѕРЅРЅР°СЏ СЃРёСЃС‚РµРјР°?';
-  Questions[16].Options[0] := 'Windows';
-  Questions[16].Options[1] := 'Intel';
-  Questions[16].Options[2] := 'Chrome';
-  Questions[16].Options[3] := 'Corel';
-  Questions[16].Correct[0] := True;
-
-  // Р’РѕРїСЂРѕСЃ 18
-  Questions[17].QType := qtSingle;
-  Questions[17].Text := 'Р“РґРµ С…СЂР°РЅСЏС‚СЃСЏ Р°РєС‚РёРІРЅС‹Рµ РїСЂРѕРіСЂР°РјРјС‹?';
-  Questions[17].Options[0] := 'ROM';
-  Questions[17].Options[1] := 'RAM';
-  Questions[17].Options[2] := 'HDD';
-  Questions[17].Options[3] := 'SSD';
-  Questions[17].Correct[1] := True;
-
-  // Р’РѕРїСЂРѕСЃ 19
-  Questions[18].QType := qtInput;
-  Questions[18].Text := 'Р’РІРµРґРёС‚Рµ СЂР°СЃС€РёСЂРµРЅРёРµ РёСЃРїРѕР»РЅСЏРµРјРѕРіРѕ С„Р°Р№Р»Р° РІ Windows';
-  Questions[18].CorrectText := '.exe';
-
-  // Р’РѕРїСЂРѕСЃ 20
-  Questions[19].QType := qtSingle;
-  Questions[19].Text := 'РљР°РєР°СЏ СЃРёСЃС‚РµРјР° СЃС‡РёСЃР»РµРЅРёСЏ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РєРѕРјРїСЊСЋС‚РµСЂР°С…?';
-  Questions[19].Options[0] := 'Р РёРјСЃРєР°СЏ';
-  Questions[19].Options[1] := 'Р”РµСЃСЏС‚РёС‡РЅР°СЏ';
-  Questions[19].Options[2] := 'Р”РІРѕРёС‡РЅР°СЏ';
-  Questions[19].Options[3] := 'РЁРµСЃС‚РЅР°РґС†Р°С‚РµСЂРёС‡РЅР°СЏ';
-  Questions[19].Correct[2] := True;
-  btnNext.Enabled := True;
-  btnFinish.Enabled := False;
-
-  ShowCurrentQuestion;
+  Form4.Hide;      // Скрыть форму тестирования
+  Form2.Show;      // Показать главное меню
 end;
 
-procedure TForm4.HideAllInputs;
-begin
-  rgAnswers.Visible := False;
-  clbAnswers.Visible := False;
-  edtAnswer.Visible := False;
-  cbAnswers.Visible := False;
-end;
-
-procedure TForm4.ShowCurrentQuestion;
+procedure TForm4.Button1Click(Sender: TObject);
 var
-  i: Integer;
+  score: Integer;
 begin
-  HideAllInputs;
-  lblQuestion.Caption := Questions[CurrentIndex].Text;
+score := 0;
 
-  case Questions[CurrentIndex].QType of
-    qtSingle:
-      begin
-        rgAnswers.Items.Clear;
-        for i := 0 to 3 do
-          rgAnswers.Items.Add(Questions[CurrentIndex].Options[i]);
-        rgAnswers.ItemIndex := -1;
-        rgAnswers.Visible := True;
-      end;
-    qtMultiple:
-      begin
-        clbAnswers.Items.Clear;
-        for i := 0 to 3 do
-          clbAnswers.Items.Add(Questions[CurrentIndex].Options[i]);
-        for i := 0 to 3 do
-          clbAnswers.Checked[i] := False;
-        clbAnswers.Visible := True;
-      end;
-    qtInput:
-      begin
-        edtAnswer.Text := '';
-        edtAnswer.Visible := True;
-      end;
-    qtCombo:
-      begin
-        cbAnswers.Items.Clear;
-        for i := 0 to 3 do
-          cbAnswers.Items.Add(Questions[CurrentIndex].Options[i]);
-        cbAnswers.ItemIndex := -1;
-        cbAnswers.Visible := True;
-      end;
+  if not Assigned(FormRegister) then
+  FormRegister := TFormRegister.Create(Application);
+
+if not Assigned(FormJournal) then
+  FormJournal := TFormJournal.Create(Application);
+
+  // Вопрос 1: один правильный ответ — 2 (RadioGroup1)
+  if RadioGroup1.ItemIndex = 1 then Inc(score);
+
+  // Вопрос 2: один правильный ответ — 10 (RadioGroup2)
+  if RadioGroup2.ItemIndex = 2 then Inc(score);
+
+  // Вопрос 3: ввод текста — "1111" (Edit1)
+  if Trim(LowerCase(Edit1.Text)) = '1111' then Inc(score);
+
+  // Вопрос 4: один правильный ответ — "Римская" (RadioGroup3)
+  if RadioGroup3.ItemIndex = 2 then Inc(score);
+
+  // Вопрос 5: список — "Двоичная" (ListBox1)
+  if ListBox1.ItemIndex = 2 then Inc(score);
+
+  // Вопрос 6: ввод текста — "1024" (Edit2)
+  if Trim(Edit2.Text) = '1024' then Inc(score);
+
+  // Вопрос 7: один правильный ответ — Word (RadioGroup4)
+  if RadioGroup4.ItemIndex = 1 then Inc(score);
+
+  // Вопрос 8: несколько правильных ответов — клавиатура и мышь (CheckListBox1: индексы 0 и 2)
+  if CheckListBox1.Checked[0] and CheckListBox1.Checked[2]
+     and not CheckListBox1.Checked[1] and not CheckListBox1.Checked[3] then Inc(score);
+
+  // Вопрос 9: один правильный ответ — RAM (RadioGroup5)
+  if RadioGroup5.ItemIndex = 1 then Inc(score);
+
+  // Вопрос 10: ввод текста — ".exe" (Edit3)
+  if Trim(LowerCase(Edit3.Text)) = '.exe' then Inc(score);
+
+  // Вопрос 11: один правильный ответ — Excel (RadioGroup6)
+  if RadioGroup6.ItemIndex = 1 then Inc(score);
+
+  // Вопрос 12: несколько правильных ответов — CD, книга, флешка (CheckListBox2: 0,1,2)
+  if CheckListBox2.Checked[0] and CheckListBox2.Checked[1] and CheckListBox2.Checked[2]
+     and not CheckListBox2.Checked[3] then Inc(score);
+
+  // Вопрос 13: один правильный ответ — Растровая (RadioGroup7)
+  if RadioGroup7.ItemIndex = 1 then Inc(score);
+
+  // Вопрос 14: ввод текста — Никлаус Вирт (Edit4)
+  if Trim(LowerCase(Edit4.Text)) = 'никлаус вирт' then Inc(score);
+
+  // Вопрос 15: список — Pascal (ListBox2)
+  if ListBox2.ItemIndex = 2 then Inc(score);
+
+  // Вопрос 16: несколько правильных — Python, C++ (CheckListBox3: 0 и 1)
+  if CheckListBox3.Checked[0] and CheckListBox3.Checked[1]
+     and not CheckListBox3.Checked[2] and not CheckListBox3.Checked[3] then Inc(score);
+
+  // Вопрос 17: один правильный ответ — Windows (RadioGroup8)
+  if RadioGroup8.ItemIndex = 1 then Inc(score);
+
+  // Вопрос 18: ввод текста — "11100000" (Edit5)
+  if Trim(Edit5.Text) = '11100000' then Inc(score);
+
+  // Вопрос 19: один правильный ответ — PowerPoint (RadioGroup9)
+  if RadioGroup9.ItemIndex = 2 then Inc(score);
+
+  // Вопрос 20: несколько правильных — Paint, Photoshop (CheckListBox4: 0 и 1)
+  if CheckListBox4.Checked[0] and CheckListBox4.Checked[1]
+     and not CheckListBox4.Checked[2] and not CheckListBox4.Checked[3] then Inc(score);
+
+  row := FormJournal.StringGrid1.RowCount;
+  FormJournal.StringGrid1.RowCount := row + 1;
+
+  with FormJournal.StringGrid1 do
+  begin
+    Cells[0, row] := FormRegister.edtFIO.Text;
+    Cells[1, row] := FormRegister.cbCourse.Text;
+    Cells[2, row] := FormRegister.edtGroup.Text;
+    Cells[3, row] := IntToStr(score);
   end;
-end;
 
-function TForm4.CheckAnswer: Boolean;
-var
-  i: Integer;
 begin
-  Result := False;
+  // Создание или подключение к Excel
+  ExcelApp := CreateOleObject('Excel.Application');
+  ExcelApp.Visible := False;
 
-  case Questions[CurrentIndex].QType of
-    qtSingle:
-      Result := Questions[CurrentIndex].Correct[rgAnswers.ItemIndex];
-
-    qtMultiple:
-      begin
-        Result := True;
-        for i := 0 to 3 do
-          if clbAnswers.Checked[i] <> Questions[CurrentIndex].Correct[i] then
-            Result := False;
-      end;
-
-    qtInput:
-      Result := LowerCase(Trim(edtAnswer.Text)) = LowerCase(Questions[CurrentIndex].CorrectText);
-
-    qtCombo:
-      Result := Questions[CurrentIndex].Correct[cbAnswers.ItemIndex];
+  try
+    WorkBook := ExcelApp.Workbooks.Open(ExtractFilePath(Application.ExeName) + 'journal.xlsx');
+  except
+    WorkBook := ExcelApp.Workbooks.Add;
   end;
+
+  WorkSheet := WorkBook.Worksheets[1];
+
+  // Поиск первой пустой строки
+  i := 2;
+  while WorkSheet.Cells[i, 1].Value <> '' do
+    Inc(i);
+
+  WorkSheet.Cells[i, 1].Value := FormRegister.edtFIO.Text;
+  WorkSheet.Cells[i, 2].Value := FormRegister.cbCourse.Text;
+  WorkSheet.Cells[i, 3].Value := FormRegister.edtGroup.Text;
+  WorkSheet.Cells[i, 4].Value := score;
+
+  WorkBook.SaveAs(ExtractFilePath(Application.ExeName) + 'journal.xlsx');
+  WorkBook.Close(False);
+  ExcelApp.Quit;
 end;
 
-procedure TForm4.btnNextClick(Sender: TObject);
-begin
-  if CheckAnswer then
-    Inc(Score);
 
-  Inc(CurrentIndex);
-if CurrentIndex < Length(Questions) then
-  ShowCurrentQuestion
-else
-begin
-  ShowMessage('Р’РѕРїСЂРѕСЃС‹ Р·Р°РєРѕРЅС‡РёР»РёСЃСЊ. РќР°Р¶РјРёС‚Рµ "Р—Р°РІРµСЂС€РёС‚СЊ".');
-  btnNext.Enabled := False;
-  btnFinish.Enabled := True;
-end;
+  // Показать результат
+  ShowMessage('Вы набрали ' + IntToStr(score) + ' из 20 баллов.');
+//FormJournal.Show;
 end;
 
-procedure TForm4.btnFinishClick(Sender: TObject);
-begin
-  ShowMessage('Р РµР·СѓР»СЊС‚Р°С‚: ' + IntToStr(Score) + ' РёР· ' + IntToStr(Length(Questions)));
-  Form4.Hide;
-end;
 
 end.
-

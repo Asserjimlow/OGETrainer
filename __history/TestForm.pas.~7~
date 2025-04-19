@@ -1,0 +1,65 @@
+unit TestForm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls;
+
+type
+  TForm4 = class(TForm)
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    lblQ1: TLabel;
+    TabSheet2: TTabSheet;
+    lblQ2: TLabel;
+    TabSheet3: TTabSheet;
+    lblQ3: TLabel;
+    TabSheet4: TTabSheet;
+    lblQ4: TLabel;
+    TabSheet5: TTabSheet;
+    lblQ5: TLabel;
+    TabSheet6: TTabSheet;
+    lblQ6: TLabel;
+    TabSheet7: TTabSheet;
+    lblQ7: TLabel;
+    TabSheet8: TTabSheet;
+    lblQ8: TLabel;
+    TabSheet9: TTabSheet;
+    lblQ9: TLabel;
+    TabSheet10: TTabSheet;
+    lblQ10: TLabel;
+    TabSheet11: TTabSheet;
+    lblQ11: TLabel;
+    TabSheet12: TTabSheet;
+    lblQ12: TLabel;
+    TabSheet13: TTabSheet;
+    lblQ13: TLabel;
+    TabSheet14: TTabSheet;
+    lblQ14: TLabel;
+    TabSheet15: TTabSheet;
+    lblQ15: TLabel;
+    TabSheet16: TTabSheet;
+    lblQ16: TLabel;
+    TabSheet17: TTabSheet;
+    lblQ17: TLabel;
+    TabSheet18: TTabSheet;
+    lblQ18: TLabel;
+    TabSheet19: TTabSheet;
+    lblQ19: TLabel;
+    TabSheet20: TTabSheet;
+    lblQ20: TLabel;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+{$R *.dfm}
+
+end.

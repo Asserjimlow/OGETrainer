@@ -1,0 +1,48 @@
+unit AboutForm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TFormAbout = class(TForm)
+    Label1: TLabel;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormAbout: TFormAbout;
+
+implementation
+
+uses Unit2;
+
+{$R *.dfm}
+
+procedure TFormAbout.Button1Click(Sender: TObject);
+begin
+  FormAbout.Hide;      // Скрыть форму "об авторе"
+  Form2.Show;      // Показать главное меню
+end;
+
+procedure TFormAbout.FormShow(Sender: TObject);
+begin
+Label1.Caption := 'Разработчик: Аяс' + #13#10 +
+                  'Проект: Обучающе-контролирующая программа "Подготовка к ОГЭ по информатике"' + #13#10 +
+                  'Версия: 1.0' + #13#10 +
+                  'Дата: Апрель 2025' + #13#10 +
+                  'Telegram: @ayas_norbu' + #13#10 +
+                  'VK: @ayas_norbu' + #13#10 +
+                  'mail: norbu2001@mail.ru';
+
+end;
+
+end.

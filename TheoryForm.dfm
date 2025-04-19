@@ -2,8 +2,8 @@ object Form3: TForm3
   Left = 0
   Top = 0
   Caption = 'Form3'
-  ClientHeight = 1116
-  ClientWidth = 1320
+  ClientHeight = 1361
+  ClientWidth = 1491
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,22 +17,20 @@ object Form3: TForm3
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 1320
-    Height = 1116
+    Width = 1491
+    Height = 1289
     ActivePage = TabSheet3
-    Align = alClient
+    Align = alTop
     TabOrder = 0
-    ExplicitLeft = -48
-    ExplicitTop = 400
     object TabSheet1: TTabSheet
       Caption = #1057#1090#1088#1091#1082#1090#1091#1088#1072' '#1079#1072#1076#1072#1085#1080#1081
-      ExplicitWidth = 929
-      ExplicitHeight = 563
+      ExplicitWidth = 1312
+      ExplicitHeight = 1088
       object Memo10: TMemo
         Left = 0
         Top = 0
-        Width = 1312
-        Height = 1088
+        Width = 1483
+        Height = 1261
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
@@ -86,19 +84,20 @@ object Form3: TForm3
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitHeight = 465
+        ExplicitWidth = 1312
+        ExplicitHeight = 1088
       end
     end
     object TabSheet2: TTabSheet
       Caption = #1056#1072#1079#1073#1086#1088#1099' '#1079#1072#1076#1072#1085#1080#1081
       ImageIndex = 1
-      ExplicitWidth = 844
-      ExplicitHeight = 383
+      ExplicitWidth = 1312
+      ExplicitHeight = 1088
       object Memo11: TMemo
         Left = 0
         Top = 0
-        Width = 1312
-        Height = 1088
+        Width = 1483
+        Height = 1261
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
@@ -737,19 +736,20 @@ object Form3: TForm3
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitHeight = 705
+        ExplicitWidth = 1312
+        ExplicitHeight = 1088
       end
     end
     object TabSheet3: TTabSheet
       Caption = #1055#1088#1080#1084#1077#1088#1099' '#1079#1072#1076#1072#1085#1080#1081
       ImageIndex = 2
-      ExplicitWidth = 844
-      ExplicitHeight = 383
+      ExplicitWidth = 1312
+      ExplicitHeight = 1088
       object Memo12: TMemo
         Left = 0
         Top = 0
-        Width = 1312
-        Height = 1088
+        Width = 1483
+        Height = 1261
         Align = alClient
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
@@ -954,9 +954,22 @@ object Form3: TForm3
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitLeft = -4
-        ExplicitTop = 3
+        ExplicitWidth = 1312
+        ExplicitHeight = 1001
       end
     end
+  end
+  object Button1: TButton
+    Left = 0
+    Top = 1304
+    Width = 1491
+    Height = 57
+    Align = alBottom
+    Caption = #1043#1083#1072#1074#1085#1086#1077' '#1084#1077#1085#1102
+    TabOrder = 1
+    OnClick = Button1Click
+    ExplicitLeft = 608
+    ExplicitTop = 1272
+    ExplicitWidth = 267
   end
 end
