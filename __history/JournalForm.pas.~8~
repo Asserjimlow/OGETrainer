@@ -40,7 +40,7 @@ begin
   // Сохраняем только заголовки
   StringGrid1.RowCount := 2;
 
-  for i := 0 to StringGrid1.ColCount - 1 do
+  for i := 1 to StringGrid1.ColCount - 1 do
     StringGrid1.Cells[i, 1] := ''; // очищаем первую строку после заголовков
 
   // Также удалим данные из файла Excel

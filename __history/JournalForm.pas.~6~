@@ -10,8 +10,6 @@ type
   TFormJournal = class(TForm)
     StringGrid1: TStringGrid;
     btnExit: TButton;
-    Button1: TButton;
-    procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -23,7 +21,6 @@ type
 
 var
   FormJournal: TFormJournal;
-  i: Integer;
 
 implementation
 
@@ -33,22 +30,6 @@ procedure TFormJournal.btnExitClick(Sender: TObject);
 begin
   FormJournal.Hide;      // Скрыть форму тестирования
   Form2.Show;      // Показать главное меню
-end;
-
-procedure TFormJournal.Button1Click(Sender: TObject);
-begin
-  // Сохраняем только заголовки
-  StringGrid1.RowCount := 2;
-
-  for i := 0 to StringGrid1.ColCount - 1 do
-    StringGrid1.Cells[i, 1] := ''; // очищаем первую строку после заголовков
-
-  // Также удалим данные из файла Excel
-  if FileExists(ExtractFilePath(Application.ExeName) + 'journal.xlsx') then
-    DeleteFile(ExtractFilePath(Application.ExeName) + 'journal.xlsx');
-
-  ShowMessage('Журнал очищен.');
-
 end;
 
 procedure TFormJournal.FormCreate(Sender: TObject);

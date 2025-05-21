@@ -36,15 +36,6 @@ uses Unit2, TestForm;
 
 procedure TFormRegister.btnOKClick(Sender: TObject);
 begin
-  if (Trim(edtFIO.Text) = '') or
-     (Trim(cbCourse.Text) = '') or
-     (Trim(edtGroup.Text) = '') then
-  begin
-    ShowMessage('Пожалуйста, заполните все поля: ФИО, курс и группу.');
-    Exit;
-  end;
-
-
   StudentFIO := edtFIO.Text;
   StudentGroup := edtGroup.Text;
   StudentCourse := cbCourse.ItemIndex + 1;

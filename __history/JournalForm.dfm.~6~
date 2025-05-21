@@ -27,22 +27,12 @@ object FormJournal: TFormJournal
   end
   object btnExit: TButton
     AlignWithMargins = True
-    Left = 816
+    Left = 720
     Top = 797
     Width = 193
     Height = 49
     Caption = #1042#1099#1081#1090#1080' '#1080#1079' '#1078#1091#1088#1085#1072#1083#1072
     TabOrder = 1
     OnClick = btnExitClick
-  end
-  object Button1: TButton
-    AlignWithMargins = True
-    Left = 617
-    Top = 797
-    Width = 193
-    Height = 49
-    Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1078#1091#1088#1085#1072#1083
-    TabOrder = 2
-    OnClick = Button1Click
   end
 end

@@ -38,7 +38,7 @@ uses RegisterForm, JournalForm, AboutForm, HelpForm, TestForm;
 {$R *.dfm}
 procedure TForm2.N1Click(Sender: TObject);
 begin
-  Form3.Show;
+  FormRegister.Show;
 end;
 
 procedure TForm2.N3Click(Sender: TObject);
